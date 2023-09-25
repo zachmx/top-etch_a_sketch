@@ -1,27 +1,42 @@
 //Functions
 
+function nestedDivs(divNumber, parentDiv, axis, totalToCreate){
+    
+    while (divNumber < totalToCreate){
+
+        let nestedDiv = document.createElement('div');
+        nestedDiv.id =`${axis}${divNumber}`;
+        nestedDiv.style.display = "flex";
+        nestedDiv.style.backgroundColor = "white";
+        //nestedDiv.style.borderStyle = "solid";
+        nestedDiv.style.flexGrow = "1";
+
+
+        parentDiv.appendChild(nestedDiv);
+        divNumber++;
+        
+
+    }
+
+
+}
+
 function createDiv(divNumber, axis, totalDivs){
    
     let div = document.createElement('div');
     div.id =`${axis}${divNumber}`;
     div.style.display = "flex";
+    div.style.flexDirection = "column";
     div.style.backgroundColor = "white";
-    div.style.borderStyle = "solid";
+    //div.style.borderStyle = "solid";
     div.style.flexGrow = "1";
-
     
 
-    //if (typeof(totalDivs) !== undefined) {
-    //    while (divNumber < totalDivs) {
-    //        let child = createDiv(divNumber, "y");
-    //        div.appendChild(child);
-    //    }
-    //
-    //    
-    //}
+    nestedDivs(divNumber, div, 'y', totalDivs);
 
     return div;
 
+    
     
 }
 
