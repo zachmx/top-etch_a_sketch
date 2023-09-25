@@ -1,14 +1,28 @@
 //Functions
 
-function createDiv(divNumber){
+function createDiv(divNumber, axis, totalDivs){
    
     let div = document.createElement('div');
-    div.id =`${divNumber}`;
+    div.id =`${axis}${divNumber}`;
+    div.style.display = "flex";
     div.style.backgroundColor = "white";
     div.style.borderStyle = "solid";
     div.style.flexGrow = "1";
 
+    
+
+    //if (typeof(totalDivs) !== undefined) {
+    //    while (divNumber < totalDivs) {
+    //        let child = createDiv(divNumber, "y");
+    //        div.appendChild(child);
+    //    }
+    //
+    //    
+    //}
+
     return div;
+
+    
 }
 
 // initial container
@@ -54,7 +68,7 @@ let squaresCreated = 0;
 
 while (squaresCreated < squaresToCreate) {
 
-   gridContainer.appendChild(createDiv(squaresCreated));
+   gridContainer.appendChild(createDiv(squaresCreated, "x", squaresToCreate));
 
    squaresCreated++;    
 
