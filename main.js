@@ -2,7 +2,9 @@
 
 function nestedDivs(divNumber, parentDiv, axis, totalToCreate){
     
-    while (divNumber < totalToCreate){
+    let count = 0
+
+    while (count < totalToCreate){
 
         let nestedDiv = document.createElement('div');
         nestedDiv.id =`${axis}${divNumber}`;
@@ -13,6 +15,7 @@ function nestedDivs(divNumber, parentDiv, axis, totalToCreate){
 
 
         parentDiv.appendChild(nestedDiv);
+        count++;
         divNumber++;
         
 
@@ -72,8 +75,16 @@ gridContainer.style.maxHeight = "70%";
 
 masterFlex.appendChild(gridContainer);
 
+let userInput = document.createElement('form');
+    userInput.id = "input-form";
+    userInput.display = "flex";
 
-// first div loop
+let countPrompt = document.createElement('input');
+
+
+
+
+// Create Grid Loop
 
 
 
