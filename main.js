@@ -1,3 +1,17 @@
+//Functions
+
+function createDiv(divNumber){
+   
+    let div = document.createElement('div');
+    div.id =`${divNumber}`;
+    div.style.backgroundColor = "white";
+    div.style.borderStyle = "solid";
+    div.style.flexGrow = "1";
+
+    return div;
+}
+
+// initial container
 
 let body = document.body;
 
@@ -20,6 +34,7 @@ masterFlex.style.width = "500px";
 
 let gridContainer = document.createElement('div');
 gridContainer.id = "grid-container";
+gridContainer.style.display = "flex";
 gridContainer.style.backgroundColor = "red";
 gridContainer.style.minWidth = "400px";
 gridContainer.style.minHeight = "400px";
@@ -27,3 +42,20 @@ gridContainer.style.maxWidth = "70%";
 gridContainer.style.maxHeight = "70%";
 
 masterFlex.appendChild(gridContainer);
+
+
+// first div loop
+
+
+
+let squaresToCreate = 5;
+
+let squaresCreated = 0;
+
+while (squaresCreated < squaresToCreate) {
+
+   gridContainer.appendChild(createDiv(squaresCreated));
+
+   squaresCreated++;    
+
+}
