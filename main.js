@@ -8,6 +8,7 @@ function nestedDivs(divNumber, parentDiv, axis, totalToCreate){
 
         let nestedDiv = document.createElement('div');
         nestedDiv.id =`${axis}${divNumber}`;
+        nestedDiv.classList = `${axis}`;
         nestedDiv.style.display = "flex";
         nestedDiv.style.backgroundColor = "white";
         //nestedDiv.style.borderStyle = "solid";
@@ -31,6 +32,7 @@ function createDiv(divNumber, axis, totalDivs){
    
     let div = document.createElement('div');
     div.id =`${axis}${divNumber}`;
+    div.classList = `${axis}`;
     div.style.display = "flex";
     div.style.flexDirection = "column";
     div.style.backgroundColor = "white";
@@ -46,6 +48,28 @@ function createDiv(divNumber, axis, totalDivs){
     
 }
 
+function clearGrid() {
+    let toRemove = document.getElementsByClassName('x');
+    
+    while(toRemove[0]) {
+        toRemove[0].parentNode.removeChild(toRemove[0]);
+    }
+}
+
+function createGrid(size = 25){
+
+    let squaresToCreate = size;
+
+    let squaresCreated = 0;
+        
+        while (squaresCreated < squaresToCreate) {
+        
+           gridContainer.appendChild(createDiv(squaresCreated, "x", squaresToCreate));
+        
+           squaresCreated++;    
+        
+        }
+    }
 // initial container
 
 let body = document.body;
@@ -112,28 +136,18 @@ inputWrapper.appendChild(inputButton);
 
 userInputBox.appendChild
 
-let squaresToCreate = inputButton.addEventListener(
+let submittedSize = inputButton.addEventListener(
     "click",
      function(e) {
         e.preventDefault();
-        let value = input.value;
-        console.log(value);
-
-    return false;
+        let value = input.value; 
+        clearGrid();
+        createGrid(value);
+    return value;
 });
 
-
-// Create Grid Loop
-
+createGrid();
 
 
 
-let squaresCreated = 0;
 
-while (squaresCreated < squaresToCreate) {
-
-   gridContainer.appendChild(createDiv(squaresCreated, "x", squaresToCreate));
-
-   squaresCreated++;    
-
-}
