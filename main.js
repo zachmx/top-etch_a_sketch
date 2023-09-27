@@ -52,6 +52,7 @@ let body = document.body;
 
 body.style.margin = "0";
 body.style.display ="flex";
+body.style.flexDirection = "column";
 body.style.height = "100vh";
 body.style.justifyContent ="center";
 body.style.alignItems = "center";
@@ -78,20 +79,54 @@ gridContainer.style.maxHeight = "70%";
 
 masterFlex.appendChild(gridContainer);
 
-let userInput = document.createElement('form');
-    userInput.id = "input-form";
-    userInput.display = "flex";
+let userInputBox = document.createElement('form');
+    userInputBox.id = "form-box";
+    userInputBox.display = "flex";
+    userInputBox.flexDirection = "column";
 
-let countPrompt = document.createElement('input');
+let inputRequest = document.createElement('p');
+    inputRequest.innerText = "Desired Grid Size // Max size 75x75";
+    inputRequest.display = "flex";
+    inputRequest.flexGrow = "1";
+    inputRequest.style.textAlign = "center";
 
+let inputWrapper = document.createElement('div')
+    inputWrapper.id = "input-wrapper";
 
+let input = document.createElement('input');
+    input.style.flexGrow = "1";
+    input.id = "input";
+
+let inputButton = document.createElement('button');
+    inputButton.innerText = "Submit";
+    inputButton.style.margin = "0px 10px 0px 10px";
+
+body.appendChild(userInputBox);
+
+userInputBox.appendChild(inputRequest);
+
+userInputBox.appendChild(inputWrapper);
+
+inputWrapper.appendChild(input);
+inputWrapper.appendChild(inputButton);
+
+userInputBox.appendChild
+
+let squaresToCreate = inputButton.addEventListener(
+    "click",
+     function(e) {
+        e.preventDefault();
+        let value = input.value;
+        console.log(value);
+
+    return false;
+});
 
 
 // Create Grid Loop
 
 
 
-let squaresToCreate = 200;
 
 let squaresCreated = 0;
 
