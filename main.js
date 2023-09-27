@@ -141,8 +141,22 @@ let submittedSize = inputButton.addEventListener(
      function(e) {
         e.preventDefault();
         let value = input.value; 
-        clearGrid();
-        createGrid(value);
+
+        if (value > 75) {
+            
+            let inputToLarge = document.createElement('p');
+            
+
+            inputToLarge.id = "too-large";
+            inputToLarge.innerText = "You've entered a number larger than 75.";
+            userInputBox.appendChild(inputToLarge);
+        } else {
+            let inputToLarge = document.getElementById("too-large");
+            clearGrid();
+            createGrid(value);
+        }
+
+
     return value;
 });
 
