@@ -18,6 +18,9 @@ function nestedDivs(divNumber, parentDiv, axis, totalToCreate){
         count++;
         divNumber++;
         
+        nestedDiv.addEventListener('mouseover', function(e) {
+            nestedDiv.style.backgroundColor = "black";
+        })
 
     }
 
@@ -88,7 +91,7 @@ let countPrompt = document.createElement('input');
 
 
 
-let squaresToCreate = 5;
+let squaresToCreate = 200;
 
 let squaresCreated = 0;
 
